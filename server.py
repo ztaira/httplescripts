@@ -1,5 +1,5 @@
-import socket
 import os
+import util
 from flask import Flask
 app = Flask(__name__)
 
@@ -19,10 +19,13 @@ def execute_applescript(some_script):
         return some_script + ' not found'
 
 
-@app.route("/ip")
-def get_ip():
-    return socket.gethostbyname(socket.gethostname())
-
-
 if __name__ == "__main__":
-    app.run()
+    args = util.setup_args().parse_args()
+
+    if args.phone:
+        util.text_ip(args.phone)
+
+    if args.public:
+        app.run(host='0.0.0.0')
+    else:
+        app.run()
