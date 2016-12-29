@@ -6,7 +6,7 @@ import spotipy
 
 def setup_args():
     parser = argparse.ArgumentParser(description='control with applescripts')
-    parser.add_argument('phone', metavar='phone', type=str,
+    parser.add_argument('--phone', type=str,
                         help='phone # that receives ip')
     parser.add_argument('--public', action='store_true',
                         help='whether to make server public')

@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return "Available Applescripts: " + str(os.listdir('./applescripts'))
 
 
 @app.route("/applescript/<some_script>")
