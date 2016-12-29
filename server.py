@@ -19,6 +19,13 @@ def execute_applescript(some_script):
         return some_script + ' not found'
 
 
+@app.route("/surprise_song/set/<title>")
+def set_surprise_song(title):
+    f = open('surprise_song.txt', 'w')
+    f.write(util.get_track_id(title))
+    f.close()
+
+
 if __name__ == "__main__":
     args = util.setup_args().parse_args()
 

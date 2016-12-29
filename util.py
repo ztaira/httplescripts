@@ -1,6 +1,7 @@
 import argparse
 import requests
 import socket
+import spotipy
 
 
 def setup_args():
@@ -17,3 +18,11 @@ def text_ip(phone):
     url = '  http://' + ip + ':5000/'
     payload = {'number': phone, 'message': url}
     print requests.post('http://textbelt.com/text', data=payload)
+
+
+def get_track_id(title):
+    spotify = spotipy.Spotify()
+    result = spotify.search(q=title, limit=1, type='track')['tracks']['items']
+    if len(result) > 0:
+        return result[0]['uri']
+    return None
