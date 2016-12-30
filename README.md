@@ -27,6 +27,6 @@ react
 
 <http://aviadas.com/blog/2015/08/05/evaluating-react-dot-js-and-flask/>
 
-https://github.com/nickjj/flask-webpack
+<https://github.com/nickjj/flask-webpack>
 
-https://github.com/callemall/material-ui
+<https://github.com/callemall/material-ui>

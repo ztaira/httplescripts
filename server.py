@@ -1,6 +1,7 @@
 import os
 import util
-from flask import Flask
+from flask import Flask, request
+from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 
@@ -17,6 +18,13 @@ def execute_applescript(some_script):
         return 'executing ' + some_script
     else:
         return some_script + ' not found'
+
+
+@app.route("/applescript/upload", methods=['POST'])
+def upload_applescript():
+    file = request.files['file']
+    file.save(os.path.join("/applescripts"), secure_filename(file.filename))
+    return "saved"
 
 
 @app.route("/surprise_song/set/<title>")
