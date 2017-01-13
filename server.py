@@ -6,7 +6,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Available Applescripts: " + str(os.listdir('./applescripts'))
+    scripts = os.listdir('./applescripts')
+    html = ''
+    for script in scripts:
+        path = '/applescript/' + script
+        html += "<a href=" + path + ">"+ script + "</a><br>"
+    # return "Available Applescripts: " + str(os.listdir('./applescripts'))
+    return "Available Applescripts:<br>" + html
 
 
 @app.route("/applescript/<some_script>")
@@ -14,25 +20,25 @@ def execute_applescript(some_script):
     filepath = "applescripts/" + some_script
     if os.path.isfile(filepath):
         os.system('osascript ' + filepath)
-        return 'executing ' + some_script
+        return 'Executed ' + some_script + "<br><br><a href='/'>home</a>"
     else:
-        return some_script + ' not found'
+        return some_script + ' not found.<br><br><a href='/'>home</a>'
 
 
-@app.route("/surprise_song/set/<title>")
+@app.route("/applescript/set_song/<title>")
 def set_surprise_song(title):
-    f = open('surprise_song.txt', 'w')
+    f = open('spotify_song.txt', 'w')
     f.write(util.get_track_id(title))
     f.close()
-    return "Wrote '" + title + "' to file"
+    return "Wrote '" + title + "' spotify track info to file.<br><br><a href='/'>home</a>"
 
 
-@app.route("/search_string/set/<title>")
+@app.route("/applescript/set_string/<title>")
 def set_search_string(title):
     f = open('search_string.txt', 'w')
     f.write(title)
     f.close()
-    return "Wrote '" + title + "' to file"
+    return "Wrote '" + title + "' to file.<br><br><a href='/'>home</a>"
 
 
 if __name__ == "__main__":
