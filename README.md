@@ -1,25 +1,33 @@
 # pie-troll
 <https://twitter.com/internetofshit>
 
-## usage
-run `python server.py`
+### Usage:
+- run `python server.py [OPTION]`
+- `--phone` option will send the public ip address of the server to the specified phone number
+- `--public` option will make the server public, and accessible to all devices on the network
 
-There are two command line arguments, `--phone` and `--public`
+### Features:
+- Extremely quick to set up and run
+- Easily add functionality by dropping new applescripts in the applescripts directory
+- Remotely control a computer through HTTP requests
 
-`--phone` will send the public ip address of the server to the specified phone number
+### What it does:
+- Sets up a Flask app to recieve HTTP requests
+- Dynamically creates URLs for each applescript
+- Runs individual applescripts in response to the HTTP requests
 
-`--public` will make the server public, and accessible to all devices on the network
+### To-Dos
+- Create front-end interface
+- Make set Spotify song work
+- Make set Chrome search string work
 
-## to-dos
--   create front-end interface
+### Current Applescripts
+- Set volume level to 0
+- Cycle through volume level
+- Google a string
+- Play a song on Spotify
 
-## troll/control ideas
--   set volume level
--   spoopy messages
--   take to specific webpages
--   play specific songs
-
-### front end:
+#### Front End Notes
 
 react
 

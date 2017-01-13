@@ -24,6 +24,15 @@ def set_surprise_song(title):
     f = open('surprise_song.txt', 'w')
     f.write(util.get_track_id(title))
     f.close()
+    return "Wrote '" + title + "' to file"
+
+
+@app.route("/search_string/set/<title>")
+def set_search_string(title):
+    f = open('search_string.txt', 'w')
+    f.write(title)
+    f.close()
+    return "Wrote '" + title + "' to file"
 
 
 if __name__ == "__main__":
