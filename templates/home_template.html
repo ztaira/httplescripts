@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>Flask Template Example</title>
+  </head>
+  <body>
+    <h3>Available Applescripts</h3>
+    {% for s in scripts %}
+      <a href={{ "/applescript/" + s }}>{{ s }}</a><br/>
+    {% endfor %}
+  </body>
+</html>

@@ -1,18 +1,13 @@
 import os
 import util
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello():
     scripts = os.listdir('./applescripts')
-    html = ''
-    for script in scripts:
-        path = '/applescript/' + script
-        html += "<a href=" + path + ">"+ script + "</a><br>"
-    # return "Available Applescripts: " + str(os.listdir('./applescripts'))
-    return "Available Applescripts:<br>" + html
+    return render_template('home_template.html', scripts=scripts)
 
 
 @app.route("/applescript/<some_script>")
