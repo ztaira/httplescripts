@@ -12,7 +12,7 @@ def hello():
         path = '/applescript/' + script
         html += "<a href=" + path + ">"+ script + "</a><br>"
     # return "Available Applescripts: " + str(os.listdir('./applescripts'))
-    return "Available Applescripts:<br>" + html
+    return "Available Applescripts:<br>" + html + "<br><br>Also you can set a search string or spotify track via:<br>/applescript/set_string/(string)<br>/applescript/set_song/(song)"
 
 
 @app.route("/applescript/<some_script>")

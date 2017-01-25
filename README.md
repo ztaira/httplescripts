@@ -16,14 +16,13 @@ Flask server which runs local applescripts in response to HTTP requests
 - Dynamically creates URLs for each applescript
 - Runs individual applescripts in response to the HTTP requests
 
-### To-Dos
-- Create front-end interface
-- Make set Spotify song work
-- Make set Chrome search string work
-
 ### Current Applescripts
 - Set volume level to 0
 - Cycle through volume level
-- Google a string
-- Play a song on Spotify
+- Google an arbitrary string
+- Play an arbitrary song on Spotify
+
+### Non-Applescript Functionality
+- Set search string to google
+- Set spotify track to play
 
