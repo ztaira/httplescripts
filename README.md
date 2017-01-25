@@ -1,4 +1,4 @@
-# pie-troll
+# httplescripts
 Flask server which runs local applescripts in response to HTTP requests
 
 ### Usage:
